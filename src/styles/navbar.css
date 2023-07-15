@@ -1,0 +1,84 @@
+.mobile-stripes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    width: 20px; /* Added width property to ensure full width */
+    text-align: center; 
+    margin-left: 5rem;
+}
+
+.stripe {
+    height: 2px;
+    background-color: white;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .mobile-stripes {
+        display: block;
+    }
+}
+
+.mobile-stripes.open .stripe:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    transition-delay: 0.2s;
+}
+
+.mobile-stripes.open .stripe:nth-child(2) {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.mobile-stripes.open .stripe:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    transition-delay: 0.2s;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8);
+    z-index: 9999;
+}
+
+.menu-overlay.open {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 80%;
+    overflow-y: auto;
+    gap: 1.5rem;
+    opacity: 0; 
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+.menu-overlay.open .menu-content {
+    opacity: 1; 
+    transform: translateY(0); 
+    transition-delay: 0.2s; 
+}
+
+.menu-content p {
+    font-size: 1.5rem;
+}
+
+.menu-content p.text-xl {
+    font-size: 1.5rem;
+}

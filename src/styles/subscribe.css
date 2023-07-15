@@ -1,0 +1,133 @@
+.subscribe {
+    height: 100vh;
+    background: linear-gradient(rgb(236, 228, 228), rgb(220, 224, 194));
+}
+
+.subcards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 85%;
+    background-color: black;
+    margin-top: 45px;
+    background-image: url('../assets/subbg.jpg');
+    background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    .subcards {
+      width: 100px;
+      height: auto;
+      margin-right: 0px;
+      flex-direction: column;
+      margin-top: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .subscribe {
+      height: auto;
+    }
+  }
+  
+  .subcard-free {
+    width: 250px;
+    height: 500px;
+    background-color: rgb(218, 207, 192);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    transform: translateY(20px);
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transition: background-color 0.5s ease;
+  }
+
+  .subcard-vip {
+    width: 250px;
+    height: 500px;
+    background-color: rgb(174, 125, 238);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    transform: translateY(20px);
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transition: background-color 0.5s ease;
+  }
+
+  .subcard-extra {
+    width: 250px;
+    height: 500px;
+    background-color: rgb(233, 91, 138);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    transform: translateY(20px);
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transition: background-color 0.5s ease;
+  }
+
+  .subcard-extra:hover {
+    background-color: rgb(226, 89, 135);
+    opacity: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .subcard-free:hover {
+    background-color: rgb(207, 196, 181);
+    opacity: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .subcard-vip:hover {
+    background-color: rgb(166, 119, 228);
+    opacity: 100%;
+    transition: opacity 0.3s ease;
+  }
+
+  .buy {
+    background-color: white;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  .buy:hover,
+  .buy:focus {
+    color: #fcfcfc;
+    background-color: #050505;
+    border-color: yellow;
+    border-width: 1px;
+  }
+  @keyframes fade-in {
+    0% {
+        opacity: 0; 
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .subcard:nth-child(1) {
+        animation-delay: 0.2s; 
+      }
+      
+      .subcard:nth-child(2) {
+        animation-delay: 0.4s; /* Задержка для второй карточки */
+      }
+      
+      .subcard:nth-child(3) {
+        animation-delay: 0.6s; /* Задержка для третьей карточки */
+      }

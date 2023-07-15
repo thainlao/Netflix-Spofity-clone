@@ -1,0 +1,35 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content.success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.modal-content.error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.modal-content p {
+  margin-bottom: 20px; /* Add margin-bottom for spacing between text and button */
+}

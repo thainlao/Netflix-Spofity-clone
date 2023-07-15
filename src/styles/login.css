@@ -1,0 +1,13 @@
+.loginbg {
+    background: linear-gradient(rgb(5, 5, 5), rgb(83, 79, 79));
+    height: 100vh;
+}
+
+.logincontainer {
+    width: 680px;
+    height: 80%;
+    background-color: black;
+    margin-top: 20px;
+    border-radius: 0.5rem;
+}
+

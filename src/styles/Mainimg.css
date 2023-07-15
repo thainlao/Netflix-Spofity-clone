@@ -1,0 +1,53 @@
+.photo-container {
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'font1';
+    src: url('../assets/GothamBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    animation: appear 1s ease-out forwards;
+    animation-delay: 2s;
+  }
+
+  @font-face {
+    font-family: 'font2';
+    src: url('../assets/GothamBookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    animation: appear 1s ease-out forwards;
+    animation-delay: 2s;
+  }
+
+  @font-face {
+    font-family: 'font3';
+    src: url('../assets/GothamLightItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    animation: appear 1s ease-out forwards;
+    animation-delay: 2s;
+  }
+
+  @font-face {
+    font-family: 'font4';
+    src: url('../assets/GothamMediumItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    animation: appear 1s ease-out forwards;
+    animation-delay: 2s;
+  }
+
+  .text-center {
+    text-align: center;
+    max-width: 750px;
+  }
