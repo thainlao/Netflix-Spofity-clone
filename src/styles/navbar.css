@@ -82,3 +82,14 @@
 .menu-content p.text-xl {
     font-size: 1.5rem;
 }
+
+.logo {
+    filter:
+    drop-shadow(3px 3px 10px #b5c657);
+    transition: ease-in;
+}
+
+.logo:hover {
+    filter:
+    drop-shadow(3px 3px 10px #d5e866);
+}

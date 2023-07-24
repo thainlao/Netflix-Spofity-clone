@@ -36,7 +36,7 @@ const End: FC = () => {
             <p className="text-[grey] cursor-pointer hover:text-white">Access</p>
             <p className="text-[grey] cursor-pointer hover:text-white">Mobile</p>
             <div className="h-6 border-r border-[grey]"></div>
-            <p className="text-[grey] cursor-pointer hover:text-white">International</p>
+            <p className="text-[grey] hidden md:block cursor-pointer hover:text-white">International</p>
           </div>
         </div>
       </div>

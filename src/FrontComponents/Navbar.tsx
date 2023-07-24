@@ -1,7 +1,9 @@
 import React, { FC, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { Link, useNavigate } from "react-router-dom";
 import 'tailwindcss/tailwind.css';
 import '../styles/navbar.css';
+import logo from '../assets/logo1.png';
 
 const Navbar: FC = () => {
     const [openMenu, setOpenMenu] = useState(false);
@@ -22,18 +24,17 @@ const Navbar: FC = () => {
             body?.classList.remove("overflow-hidden");
         }
     }, [openMenu]);
-
+    
     return (
         <div 
         style={{ fontFamily: 'font1'}}
         className="w-full bg-black py-6 flex justify-between items-center fixed z-10">
-            <div className="mx-auto flex gap-3 cursor-pointer">
-                <Link to='/'><p className="text-xl text-white">Thianlao</p></Link>
-                <Link to='/'><p className="text-xl text-white">img</p></Link>
+            <div className="flex mx-auto gap-3 cursor-pointer items-center">
+                <Link to='/'><img src={logo} alt='logo' className="w-14 h-8 logo"/></Link>
             </div>
             <div className="mx-auto flex gap-5 cursor-pointer">
-                <p className="text-xl hidden md:block text-white hover:text-[#e3eb75]">Music</p>
-                <p className="text-xl hidden md:block text-white hover:text-[#e3eb75]">Films</p>
+                <Link to='/music'><p className="text-xl hidden md:block text-white hover:text-[#e3eb75]">Music</p></Link> 
+                <Link to='/films'><p className="text-xl hidden md:block text-white hover:text-[#e3eb75]">Films</p></Link>
             </div>
             <div 
             onClick={handleOpenMenu}
@@ -44,19 +45,19 @@ const Navbar: FC = () => {
             </div>
             <div className={`menu-overlay ${openMenu ? 'open' : ''}`} onClick={handleCloseMenu}>
                 <div className="menu-content">
-                    <Link to='/login'><p className="text-xl text-white cursor-pointer hover:text-[#e3eb75]">Log In</p></Link>
-                    <Link to='/signin'><p className="text-xl text-white cursor-pointer hover:text-[#e3eb75]">Sign In</p></Link>
-                    <p className="text-xl text-white cursor-pointer hover:text-[#e3eb75]">Support</p>
+                    <Link to='/login'><p className="text-xl text-white cursor-pointer hover:text-[#e3eb75] text-center">Log In</p></Link>
+                    <Link to='/signin'><p className="text-xl text-white cursor-pointer hover:text-[#e3eb75] text-center">Sign In</p></Link>
+                    <Link to='/support'><p className="text-xl text-white cursor-pointer hover:text-[#e3eb75]">Support</p></Link>
                     <Link to='/subscribe'><p className="text-xl text-white cursor-pointer hover:text-[#e3eb75]">Subscribe</p></Link>
-                    <p className="text-xl text-white hover:text-[#e3eb75]">Music</p>
-                <p className="text-xl text-white hover:text-[#e3eb75]">Films</p>
+                    <Link to='/music'><p className="text-xl text-white hover:text-[#e3eb75]">Music</p></Link> 
+               <Link to='/films'> <p className="text-xl text-white hover:text-[#e3eb75]">Films</p></Link> 
                 </div>
             </div>
             <div className="mx-auto flex gap-5">
                 <Link to='/login'><p className="text-xl hidden md:block text-white cursor-pointer hover:text-[#e3eb75]">Log In</p></Link>
                 <Link to='/signin'><p className="text-xl hidden md:block text-white cursor-pointer hover:text-[#e3eb75]">Sign In</p></Link>
                 <div className="h-8 border-r border-white hidden md:block"></div>
-                <p className="text-xl text-white hidden md:block cursor-pointer hover:text-[#e3eb75]">Support</p>
+                <Link to='/support'><p className="text-xl text-white hidden md:block cursor-pointer hover:text-[#e3eb75]">Support</p></Link>
                 <Link to='/subscribe'><p className="text-xl hidden md:block text-white cursor-pointer hover:text-[#e3eb75]">Subscribe</p></Link>
             </div>
         </div>

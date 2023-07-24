@@ -1,0 +1,10 @@
+.music-bg {
+    background: rgb(230, 222, 222);
+}
+
+.music-container {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}

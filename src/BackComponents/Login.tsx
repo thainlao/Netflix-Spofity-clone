@@ -1,13 +1,14 @@
 import React, { FC, useState } from 'react'
+import { useCookies } from 'react-cookie';
 import { Link, useNavigate } from 'react-router-dom'
 import '../styles/login.css';
 import '../styles/Mainimg.css';
-import Cookies from 'js-cookie';
 import '../styles/Modals.css';
 
 const Login: FC = () => {
     const [emailOrUsername, setEmailOrUsername] = useState('')
     const [password, setPassword] = useState('');
+    const [cookies, setCookie] = useCookies(['user'])
 
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
@@ -15,29 +16,19 @@ const Login: FC = () => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        const userString = Cookies.get('user');
-    
-        if (!userString) {
-          setModalMessage('User does not exist');
-          setModalType('error');
-          setShowModal(true);
-          return;
-        }
-    
-        const user = JSON.parse(userString);
-    
-        if ((user.email === emailOrUsername || user.username === emailOrUsername) && user.password === password) {
-          navigate('/dashboard');
-        } else if (user.email === emailOrUsername || user.username === emailOrUsername) {
-          setModalMessage('Incorrect password');
-          setModalType('error');
-          setShowModal(true);
-        } else {
-          setModalMessage('User does not exist');
-          setModalType('error');
-          setShowModal(true);
-        }
-      };
+        const userExists =
+        cookies.user &&
+        (cookies.user.email === emailOrUsername || cookies.user.username === emailOrUsername);
+      const passwordIsValid = userExists && cookies.user.password === password;
+  
+      if (userExists && passwordIsValid) {
+        navigate('/dashboard')
+      } else {
+        setShowModal(true);
+        setModalType('error');
+        setModalMessage('Неверные учетные данные. Пожалуйста, попробуйте снова.');
+      }
+    };
     
 
     return (

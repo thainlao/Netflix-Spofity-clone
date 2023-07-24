@@ -1,44 +1,44 @@
-import React, { FC, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { FC, useState} from 'react'
+import { useCookies } from 'react-cookie';
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/login.css';
 import '../styles/Mainimg.css';
-import Cookies from 'js-cookie';
 import '../styles/Modals.css';
 
 const SignIn: FC = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [cookies, setCookie] = useCookies(['user'])
 
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const [modalType, setModalType] = useState('');
+    const navigate = useNavigate();
 
     const handleRegistration = () => {
-      const existingUserString = Cookies.get('user')
-
-      if (existingUserString) {
-        const existingUser = JSON.parse(existingUserString);
-        if (existingUser.email === email || existingUser.username === username) {
-          setModalMessage('e-mail/Username is already exist');
-          setModalType('error');
-          setShowModal(true);
-          setPassword('');
-          setUsername('');
-          setEmail('');
-          return;
+    
+      // Проверка наличия пользователя с данным именем пользователя или адресом электронной почты
+      const userExists = cookies.user && (cookies.user.email === email || cookies.user.username === username);
+    
+      if (userExists) {
+        // Пользователь с данными уже существует
+        setShowModal(true);
+        setModalType('error');
+        setModalMessage('Пользователь с указанными данными уже существует.');
+      } else {
+        // Создание объекта пользователя
+        const user = { email, username, password };
+    
+        // Сохранение данных пользователя в куки
+        setCookie('user', user, { path: '/' });
+        setShowModal(true);
+        setModalType('success');
+        setModalMessage('Регистрация прошла успешно!');
       }
-    }
+    };
+    
 
-    const newUser = { email, username, password};
-    Cookies.set('user', JSON.stringify(newUser))
-    setModalMessage('Success Registration!')
-    setModalType('success');
-    setShowModal(true);
-    setPassword('');
-    setUsername('');
-    setEmail('');
-  }
     return (
         <div className='loginbg flex items-center justify-center'>
         <div className='logincontainer'>

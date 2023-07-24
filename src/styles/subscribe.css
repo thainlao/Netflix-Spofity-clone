@@ -1,133 +1,167 @@
-.subscribe {
-    height: 100vh;
-    background: linear-gradient(rgb(236, 228, 228), rgb(220, 224, 194));
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
+
+.subscribe-bg {
+  background-color: rgb(230, 230, 230);
+  height: auto;
+  overflow: hidden;
+  padding-top: 100px;
 }
 
-.subcards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 85%;
-    background-color: black;
-    margin-top: 45px;
-    background-image: url('../assets/subbg.jpg');
-    background-size: cover;
+.subscribe-container {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .subscribe-container {
+    max-width: 800px;
+  }
+}
+
+.container-1st {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 100px;
+}
+
+.container-2st {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container-3st {
+  width: 100%;
+  max-width: 1400px;
+  max-height: 1300px;
+  margin: 0 auto;
+  height: 800px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 20px;
+  background-color: #503cd3;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px; 
+}
+
+@media (max-width: 1200px) {
+  .container-3st {
+    max-width: 800px;
+  }
+}
+
+.maintext {
+  max-width: 60%;
+  font-size: 30px;
+  margin: 8% auto 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.maintext-img {
+  max-width: 60%;
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sub-text {
+  max-width: 60%;
+  font-size: 20px;
+  font-weight: 450;
+  color: grey;
+}
+
+.subb-text {
+  max-width: 60%;
+  font-size: 15px;
+  font-weight: 450;
+  color: grey;
+}
+
+.sub-button {
+  width: 60%;
+  height: 70px;
+  border-radius: 10px;
+  font-size: 19px;
+  font-weight: 350;
+  color: white;
+  background:linear-gradient(rgb(191, 200, 28), rgb(218, 49, 209));
+  transition: all 0.3s;
+}
+
+.sub-button:hover {
+  background:linear-gradient(rgb(175, 183, 25), rgb(195, 42, 188));
+  transform: scale(1.03);
+}
+
+.sub-img {
+  max-width: 50%;
+  border-radius: 20px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+  transition: all .3s;
+}
+
+.sub-img:hover {
+  transform: scale(1.05);
+}
+
+.sub-images {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.sub-images:hover {
+  opacity: 0.8;
+}
+
+.spacer {
+  height: 30px;
+  background: rgb(230, 230, 230);
+  width: 100%;
+}
+
+.pic-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .pic-container {
+    flex-direction: column;
   }
 
-  @media (max-width: 768px) {
-    .subcards {
-      width: 100px;
-      height: auto;
-      margin-right: 0px;
-      flex-direction: column;
-      margin-top: 100px;
-    }
+  .sub-images {
+    width: 350px;
+    height: 250px;
   }
-
-  @media (max-width: 768px) {
-    .subscribe {
-      height: auto;
-    }
-  }
-  
-  .subcard-free {
-    width: 250px;
-    height: 500px;
-    background-color: rgb(218, 207, 192);
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0%;
-    transform: translateY(20px);
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    transition: background-color 0.5s ease;
-  }
-
-  .subcard-vip {
-    width: 250px;
-    height: 500px;
-    background-color: rgb(174, 125, 238);
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0%;
-    transform: translateY(20px);
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    transition: background-color 0.5s ease;
-  }
-
-  .subcard-extra {
-    width: 250px;
-    height: 500px;
-    background-color: rgb(233, 91, 138);
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0%;
-    transform: translateY(20px);
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    transition: background-color 0.5s ease;
-  }
-
-  .subcard-extra:hover {
-    background-color: rgb(226, 89, 135);
-    opacity: 100%;
-    transition: opacity 0.3s ease;
-  }
-
-  .subcard-free:hover {
-    background-color: rgb(207, 196, 181);
-    opacity: 100%;
-    transition: opacity 0.3s ease;
-  }
-
-  .subcard-vip:hover {
-    background-color: rgb(166, 119, 228);
-    opacity: 100%;
-    transition: opacity 0.3s ease;
-  }
-
-  .buy {
-    background-color: white;
-    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  }
-
-  .buy:hover,
-  .buy:focus {
-    color: #fcfcfc;
-    background-color: #050505;
-    border-color: yellow;
-    border-width: 1px;
-  }
-  @keyframes fade-in {
-    0% {
-        opacity: 0; 
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1; 
-        transform: translateY(0); 
-      }
-    }
-
-    .subcard:nth-child(1) {
-        animation-delay: 0.2s; 
-      }
-      
-      .subcard:nth-child(2) {
-        animation-delay: 0.4s; /* Задержка для второй карточки */
-      }
-      
-      .subcard:nth-child(3) {
-        animation-delay: 0.6s; /* Задержка для третьей карточки */
-      }
+}

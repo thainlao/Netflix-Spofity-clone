@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+.support-bg {
+    background: rgb(244, 237, 237);
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+.support-container {
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .question {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .question:hover {
+    transform: scale(1.05);
+  }
+  
+  .arrow-btn {
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .arrow-btn:hover {
+    transform: scale(1.4);
+  }
+  
+  .expand-content {
+    max-height: 0;
+    color: black;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .expand-content p {
+    font-size: 16px;
+    font-weight: 250;
+  }
+  
+  .expand-content.expanded {
+    max-height: 200px; /* Нужная высота для раскрытого контента */
+    transition: max-height 0.3s ease;
+  }
+  
+  .arrow-btn.rotate {
+    transform: rotate(180deg);
+    color: red;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .arrow-btn.rotate:hover {
+    transform: scale(1.4)
+  }
+
+  .arrow-btn.expanded {
+    color: red;
+  }
+  
+  .question.expanded {
+    color: red;
+  }
+
+  .end-support {
+    justify-content: start;
+    align-items: flex-start;
+    flex-direction: column;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1400px;
+    color: rgb(72, 68, 68);
+    gap: 15px;
+  }
+
+  .link {
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .link:hover {
+    opacity: 0.5;
+  }
