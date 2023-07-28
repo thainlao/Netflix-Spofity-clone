@@ -16,20 +16,18 @@ import wl2 from '../assets/phone1.jpeg';
 const Films: FC = () => {
     const [activeFilmIndex, setActiveFilmIndex] = useState(0);
     const [activeImage, setActiveImageIndex] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
-
 
     const films = [ 
-        { image: filming, title: "Oppenheimer", price: '4. 99$', duratin: '1h 34m', Rating: '2/10',},
+        { image: filming, title: "Oppenheimer", price: '4. 99$', duratin: '2h 21m', Rating: '2/10',},
         { image: filming2, title: "Barbie", price: 'FREE', duratin: '1h 34m', Rating: '8.5/10',},
-        { image: filming3, title: "Interstellar", price: '9. 99$', duratin: '1h 34m', Rating: '2/10',},
-        { image: filming4, title: "Taxi Driver", price: '6. 99$', duratin: '1h 34m', Rating: '9/10',},
-        { image: filming5, title: "Saw", price: '1.00$', duratin: '1h 34m', Rating: '8.5/10',},
-        { image: filming6, title: "Sigma Male", price: '5.00$', duratin: '1h 34m', Rating: '8.5/10',},
-        { image: filming7, title: "Fight Club", price: '9. 99$', duratin: '1h 34m', Rating: '8.5/10',},
-        { image: filming8, title: "Your Name", price: 'FREE', duratin: '1h 34m', Rating: '8.5/10',},
-        { image: filming9, title: "Death Note", price: 'FREE', duratin: '1h 34m', Rating: '8.5/10',},
-        { image: filming10, title: "Film 10", price: '9. 99$', duratin: '1h 34m', Rating: '8.5/10',},
+        { image: filming3, title: "Interstellar", price: '9. 99$', duratin: '2h 14m', Rating: '2/10',},
+        { image: filming4, title: "Taxi Driver", price: '6. 99$', duratin: '4h 15m', Rating: '9/10',},
+        { image: filming5, title: "Saw", price: '1.00$', duratin: '3h 34m', Rating: '7.5/10',},
+        { image: filming6, title: "Sigma Male", price: '5.00$', duratin: '1h 48m', Rating: '4.8/10',},
+        { image: filming7, title: "Fight Club", price: '9. 99$', duratin: '2h 30m', Rating: '9.5/10',},
+        { image: filming8, title: "Your Name", price: 'FREE', duratin: '1h 56m', Rating: '6.5/10',},
+        { image: filming9, title: "Death Note", price: 'FREE', duratin: '1h 21m', Rating: '7.3/10',},
+        { image: filming10, title: "Film 10", price: '9. 99$', duratin: '1h 13m', Rating: '6.1/10',},
     ];
 
     const images = [filming2, wl1, wl2, filming3, filming8];
@@ -61,14 +59,6 @@ const Films: FC = () => {
             setActiveFilmIndex(activeFilmIndex + 1);
         }
     };
-
-    const handleCardEnter = () => {
-        setIsHovered(true);
-      };
-    
-      const handleCardLeave = () => {
-        setIsHovered(false);
-      };
 
     return (
         <div className="filmsbody">

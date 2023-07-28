@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import Navbar from './Navbar';
-import photo from '../assets/bg.png';
+import photo from '../assets/bg3.jpg';
 import '../styles/Mainimg.css';
 import TextandPic from './TextandPic';
 import End from './End';
@@ -36,11 +36,11 @@ const Mainimg: FC = () => {
                         >
                         <div className='flex items-center flex-col gap-5'>      
                         <p 
-                        style={{ fontFamily: 'font1', mixBlendMode: 'overlay'}}
-                        className='text-black lg:text-5xl md:text-4xl text-3xl py-6'
+                        style={{ fontFamily: 'font1'}}
+                        className='text-white lg:text-5xl md:text-4xl text-3xl py-6'
                         >Enjoy and feel free here</p>
                         <p 
-                        style={{ fontFamily: 'font4'}}
+                        style={{ fontFamily: 'font4', mixBlendMode: 'overlay'}}
                         className='text-[white] lg:text-5xl md:text-4xl text-3xl'
                         >follow our growing community</p>
                     </div>    

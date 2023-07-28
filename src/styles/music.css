@@ -1,10 +1,235 @@
-.music-bg {
-    background: rgb(230, 222, 222);
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300&display=swap');
 
+.music-bg {
+    height: auto;
+    overflow: hidden;
+    min-height: 100vh;
+}
 .music-container {
     justify-content: center;
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    background-color: white;
+}
+
+.music-text {
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+    font-weight: 650;
+}
+
+.music-sub-text {
+    font-size: 30px;
+    color: rgb(130, 118, 118);
+    font-family: 'Rubik', sans-serif;
+}
+
+.line {
+    display: flex;
+    margin: 0 auto;
+    width: 99.8%;
+    height: 2px;
+    background-color: black;
+    margin-top: 5px;
+    opacity: 0.2;
+}
+
+.music-card {
+    width: 100%;
+    max-width: 250px; 
+    height: 260px;
+    background-color: black;
+    margin: 0 auto; 
+}
+
+/* MAIN-MUSIC-CONTAINER */
+
+.music-main-container {
+    background-color: white;
+    min-width: 75vw;
+    font-family: 'Oswald', sans-serif;
+    padding: 20px;
+    height: 125vh;
+}
+
+@media (min-width: 1280px) {
+    .music-main-container {
+        height: 105vh;
+    }
+}
+
+.music-navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.navbar-component {
+    font-size: 24px;
+    color: rgb(77, 71, 71);
+    font-weight: 450;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-component:hover {
+    color: red;
+}
+
+@media (max-width: 1200px) {
+    .music-main-container {
+      min-width: 100vw;
+    }
+}
+
+.music-main-wawe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    flex-direction: column;
+    gap: 60px;
+    overflow: hidden;
+}
+
+.playlist {
+    display: flex;
+    margin-top: 40px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.popular-now {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    margin-top: 60px;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.music-cards {
+    flex-direction: row;
+    display: flex;
+    gap: 35px;
+    position: relative;
+}
+
+.music-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+
+.music-card-img:hover {
+    opacity: 0.5;
+}
+
+.music-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 25px;
+}
+
+.music-card-subtext {
+    opacity: 0.6;
+    font-size: 29px;
+}
+
+@media (max-width: 900px) {
+    .music-card-subtext {
+        font-size: 17px;
+    }
+}
+
+.music-card-maintext {
+    font-size: 30px;
+}
+
+
+.music-card-subtext-line {
+    display: flex;
+    gap: 15px;
+}
+
+/* 2nd PAGE APPLICATION */
+.secondpage-container {
+    background-color: white;
+    height: auto;
+    min-height: 120vh;
+    min-width: 25vw;
+    display: flex;
+    z-index: 8;
+    padding-top: 75px;
+}
+
+@media (max-width: 1200px) {
+    .secondpage-container {
+      min-width: 100vw;
+    }
+}
+
+.vertical-line {
+    width: 2px;
+    background: black;
+    opacity: 0.2;
+}
+
+.playlist-container {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    height: auto;
+}
+
+.playlist-item {
+    position: relative;
+    width: 440px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(221, 221, 190);
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding-right: 30px;
+    box-shadow: 0 2px 4px black;
+}
+
+.playlist-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 120px;
+    max-height: 120px;
+    transition: all 0.3s ease-in-out;
+}
+
+.playlist-img:hover {
+    opacity: 0.6;
+}
+
+.play-icon {
+    position: absolute;
+    top: 57%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+
+.playlist-item:hover .play-icon {
+    opacity: 1;
 }
