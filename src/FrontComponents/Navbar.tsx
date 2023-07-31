@@ -30,7 +30,7 @@ const Navbar: FC = () => {
         style={{ fontFamily: 'font1'}}
         className="w-full bg-black py-6 flex justify-between items-center fixed z-10">
             <div className="flex mx-auto gap-3 cursor-pointer items-center">
-                <Link to='/'><img src={logo} alt='logo' className="w-14 h-8 logo"/></Link>
+                <Link to='/'><img src={logo} alt='logo' className="w-9 h-9 logo"/></Link>
             </div>
             <div className="mx-auto flex gap-5 cursor-pointer">
                 <Link to='/music'><p className="text-xl hidden md:block text-white hover:text-[#e3eb75]">Music</p></Link> 

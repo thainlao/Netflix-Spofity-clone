@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from 'react'
-import Navbar from './Navbar';
 import photo from '../assets/bg3.jpg';
 import '../styles/Mainimg.css';
 import TextandPic from './TextandPic';

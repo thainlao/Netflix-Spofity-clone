@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/music.css';
 import carti from '../assets/carti.jpeg';
@@ -13,9 +13,11 @@ const Music: FC = () => {
     const onThaLine = require("../assets/Onthaline.mp3");
     const Nonstop = require("../assets/Nonstop.mp3");
 
-    const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [playlist, setPlaylist] = useState<any[]>([]);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [showPlayList, setShowPlayList] = useState(false);
+    const [playlistItem, setPlaylistItem] = useState(0);
 
     const musicCards = [
         { image: carti, title: "CARTI", genre: 'RAP', name: 'Sky', duration: '2m 04s', audio: Sky},
@@ -25,8 +27,38 @@ const Music: FC = () => {
     ];
 
     const addToPlaylist = (musicCard: any) => {
-        setPlaylist((prevPlayList) => [...prevPlayList, musicCard])
+        setPlaylist((prevPlayList) => [...prevPlayList, musicCard]);
+        setPlaylistItem(playlistItem +1);
     }
+
+    const togglePlayList = () => {
+        setShowPlayList(!showPlayList);
+    }
+
+    const clear = () => {
+        setPlaylist([]);
+        setPlaylistItem(0);
+    }
+
+    const handlePlayPause = (musicCard: any) => {
+        if (audioRef.current) {
+            if (audioRef.current.src === musicCard.audio) {
+                setIsPlaying(prevIsPlaying => !prevIsPlaying);
+                if (audioRef.current.paused) {
+                    audioRef.current.play();
+                } else {
+                    audioRef.current.pause();
+                }
+            } else {
+                if (!audioRef.current.paused) {
+                    audioRef.current.pause();
+                }
+                audioRef.current.src = musicCard.audio;
+                audioRef.current.play();
+                setIsPlaying(true);
+            }
+        }
+    };
 
     return (
         <div className="music-bg">
@@ -47,11 +79,17 @@ const Music: FC = () => {
                             <p className="music-sub-text">Моя Волна</p>
                         </div>
                         <button onClick={() => navigate('/login')} style={{ maxWidth: '350px'}} className='sub-button'>Подписаться</button>
+                            <button 
+                            onClick={togglePlayList} style={{ maxWidth: '350px' }} className='playlist-shown'>
+                            SHOWPLAYLIST
+                            <div className="red-surcle">{playlistItem}</div>
+                        </button>
                         <div style={{marginTop: '-30px'}} className="flex flex-col gap-2 opacity-70 cursor-default">
                             <p className="">В этом месяце бесплатно</p>
                             <p className="">В следующем месяце 299</p>
                         </div>
                     </div>
+                    <audio ref={audioRef} controls style={{ display: 'none' }} />
                     <div className="popular-now">
                         <p className="music-text">Популярное сегодня</p>
                         <div className="music-cards">
@@ -81,10 +119,21 @@ const Music: FC = () => {
                 <div style={{fontFamily: 'font1'}} className="secondpage-container">
                 <div className="vertical-line"></div>
                 <div className="playlist-container">
+                    <div className="playlist-container-info">
+                    <h1 className="music-text">Playlist</h1>
+                    <div className="red-surcle-lg">{playlistItem}</div>
+                    <button className="close-button" onClick={() => clear()}>Clear</button>
+                    </div>
+                    <div className="playlist-line"></div>
                     {playlist.map((item, index) => (
                         <div key={index} className="playlist-item">
                             <img className="playlist-img" src={item.image} alt={item.title} />
-                            <button className="play-icon">&#9654;</button>
+                            <button 
+                            className="play-icon"
+                            onClick={() => handlePlayPause(item)}
+                            >
+                                &#9654;
+                            </button>
                                 <p>{item.title}</p>
                                 <p>{item.name}</p>
                                 <p>{item.duration}</p>
@@ -93,6 +142,32 @@ const Music: FC = () => {
                 </div>
             </div>
         </div>
+        {showPlayList && (
+        <div style={{ fontFamily: 'font1' }} className="secondpage-container">
+        <div className="vertical-line"></div>
+            <div className="playlist-container1">
+                <h1 className="music-text">Playlist</h1>
+                <div className="buttons-container">
+                    <button className="close-button" onClick={togglePlayList}>Close</button>
+                    <button className="close-button" onClick={() => clear()}>Clear</button>
+                </div>
+                {playlist.map((item, index) => (
+                <div key={index} className="playlist-item">
+                <img className="playlist-img" src={item.image} alt={item.title} />
+                <button
+                className="play-icon"
+                onClick={() => handlePlayPause(item)}
+                >
+                &#9654;
+                </button>
+            <p>{item.title}</p>
+            <p>{item.name}</p>
+            <p>{item.duration}</p>
+            </div>
+            ))}
+        </div>
+    </div>
+)}
     </div>
   )
 }

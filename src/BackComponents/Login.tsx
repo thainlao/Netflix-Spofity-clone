@@ -65,8 +65,9 @@ const Login: FC = () => {
                         </div>
                         <button 
                         onClick={handleLogin}
-                        className='w-full text-xl font-semibold rounded-full bg-[#e3eb75] h-12
-                        hover:border border-[#fff9f9]'>
+                        className={`w-full text-xl font-semibold rounded-full ${
+                            password.length < 5 ? 'bg-[#919191] cursor-not-allowed' : 'bg-[#e3eb75] hover:border border-[#fff9f9]'
+                            } h-12`}>
                             Войти
                         </button>
                     </div>

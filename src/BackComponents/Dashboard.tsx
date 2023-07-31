@@ -40,7 +40,7 @@ const Dashboard: FC = () => {
                 <div className="flex justify-center mt-6">
                     <button 
                     onClick={logOut}
-                    className="text-xl font-semibold rounded-full bg-[#e3eb75] h-12 px-6 hover:border border-[#fff9f9]">
+                    className="text-xl font-semibold rounded-full bg-[#e3eb75] hover:bg-[#cdd46b] transition-all h-12 px-6">
                         Log Out
                     </button>
                  </div>

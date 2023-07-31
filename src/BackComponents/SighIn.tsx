@@ -14,27 +14,47 @@ const SignIn: FC = () => {
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const [modalType, setModalType] = useState('');
-    const navigate = useNavigate();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(email);
 
+    let passwordStrengthMessage = 'Weak password';
+    if (password.length >= 5 && password.length <= 7) {
+      passwordStrengthMessage = 'Medium password';
+    } else if (password.length > 7) {
+      passwordStrengthMessage = 'Strong password';
+    }
+
+    const navigate = useNavigate();
     const handleRegistration = () => {
+
+      if (!isValidEmail) {
+        setShowModal(true);
+        setModalType('error');
+        setModalMessage('Please enter a valid email address');
+        return;
+      }
+
+      if (password.length < 5) {
+        setShowModal(true);
+        setModalType('error');
+        setModalMessage('Weak password. Password should be at least 5 characters long.')
+      }
     
       // Проверка наличия пользователя с данным именем пользователя или адресом электронной почты
       const userExists = cookies.user && (cookies.user.email === email || cookies.user.username === username);
     
       if (userExists) {
-        // Пользователь с данными уже существует
         setShowModal(true);
         setModalType('error');
-        setModalMessage('Пользователь с указанными данными уже существует.');
+        setModalMessage('Current user is already exist :(');
       } else {
-        // Создание объекта пользователя
         const user = { email, username, password };
     
         // Сохранение данных пользователя в куки
         setCookie('user', user, { path: '/' });
         setShowModal(true);
         setModalType('success');
-        setModalMessage('Регистрация прошла успешно!');
+        setModalMessage('Success Registration!');
       }
     };
     
@@ -78,8 +98,11 @@ const SignIn: FC = () => {
                 />
               </div>
               <button
-                className='w-full text-xl font-semibold rounded-full bg-[#e3eb75] h-12 hover:border border-[#fff9f9]'
+                className={`w-full text-xl font-semibold rounded-full ${
+                  password.length < 5 ? 'bg-[#919191] cursor-not-allowed' : 'bg-[#e3eb75] hover:border border-[#fff9f9]'
+                  } h-12`}
                 onClick={handleRegistration}
+                disabled={password.length < 5}
               >
                 Зарегистрировать
               </button>

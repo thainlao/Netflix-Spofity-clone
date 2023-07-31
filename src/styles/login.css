@@ -1,7 +1,6 @@
 .loginbg {
-    background: linear-gradient(white, grey);
+    background-color: rgb(230, 230, 230);
     height: auto;
-
 }
 
 .logincontainer {
